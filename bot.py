@@ -9,8 +9,7 @@ bot = telebot.TeleBot(TOKEN)
 
 def generate_language_selection_markup():
     markup = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
-    markup.add(telebot.types.KeyboardButton('English'))
-    markup.add(telebot.types.KeyboardButton('Sinhala'))
+    markup.row('English', 'Sinhala')
     return markup
 
 @bot.message_handler(commands=['start'])
@@ -21,9 +20,9 @@ def start(message):
 def handle_language_selection(message):
     selected_language = message.text.lower()
 
-    if selected_language == 'English':
+    if selected_language == 'english':
         target_language = 'en'
-    elif selected_language == 'Sinhala':
+    elif selected_language == 'sinhala':
         target_language = 'si'
     else:
         bot.send_message(message.chat.id, "Invalid language selection. Please choose either 'English' or 'Sinhala'.")
