@@ -1,23 +1,23 @@
-from pyrogram import Client, filters
+import telebot
 from googletrans import Translator
 
-# Replace 'YOUR_BOT_TOKEN' with your actual bot token
-API_KEY = '1879931223:AAGhQi-yFWyrK9JOT3pRAtwlR8adrxGLmVU'
-app = Client("my_bot", api_id=5402280, api_hash=65fe4300f4d442351e639e2f601bae4e, bot_token=API_KEY)
+translator = Translator()
 
-@app.on_message(filters.private & filters.text)
-def translate_text(client, message):
-    translator = Translator()
-    text = message.text
+TOKEN = "1879931223:AAGhQi-yFWyrK9JOT3pRAtwlR8adrxGLmVU"
 
-    # Detect the language of the input text
-    detected_language = translator.detect(text).lang
+bot = telebot.TeleBot(TOKEN)
 
-    # Translate the text to English
-    translated_text = translator.translate(text, dest='en').text
+@bot.message_handler(commands=['start'])
+def start(message):
+    bot.send_message(message.chat.id, "Welcome to the Google Translate Telegram bot! Send me any text you want to translate and I will do my best to translate it for you.")
 
-    # Reply with the translation
-    message.reply_text(f"Detected Language: {detected_language}\nTranslated: {translated_text}")
+@bot.message_handler(func=lambda message: True)
+def translate(message):
+    try:
+        source_language = message.chat.language_code
+        translated_text = translator.translate(message.text, dest="en").text
+        bot.send_message(message.chat.id, f"Translation from {source_language} to English: {translated_text}")
+    except Exception as e:
+        bot.send_message(message.chat.id, "An error occurred while translating your text. Please try again.")
 
-if __name__ == "__main__":
-    app.run()
+bot.polling()
