@@ -14,7 +14,14 @@ def start(message):
 @bot.message_handler(func=lambda message: True)
 def translate(message):
     try:
-        translated_text = translator.translate(message.text)
+        if " | " in message.text:
+            text, language = message.text.split(" | ", 1)
+            language = language.strip()
+        else:
+            text = message.text
+            language = 'sinhala'
+
+        translated_text = translator.translate(text, target=language)
         bot.send_message(message.chat.id, f"Translation: {translated_text}")
     except Exception as e:
         bot.send_message(message.chat.id, "An error occurred while translating your text. Please try again.")
