@@ -1,4 +1,4 @@
-name: Run Google Translate Telegram Bot
+name: Run Deep Translate Telegram Bot
 
 on:
   push:
@@ -19,7 +19,7 @@ jobs:
           python-version: 3.x
 
       - name: Install dependencies
-        run: pip install telebot googletrans
+        run: pip install deep-translator
 
-      - name: Run Google Translate Telegram Bot
+      - name: Run Deep Translate Telegram Bot
         run: python bot.py
