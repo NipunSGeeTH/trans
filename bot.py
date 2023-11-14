@@ -23,6 +23,7 @@ bot.polling()
 """
 import telebot
 from deep_translator import GoogleTranslator
+from telebot.types import InlineKeyboardButton
 
 translator = GoogleTranslator(source='auto')
 
@@ -61,9 +62,9 @@ def translate_with_selected_language(call):
 
 def get_language_selection_keyboard():
     # Create the inline markup keyboard with two buttons
-    keyboard = types.InlineKeyboardMarkup()
-    english_button = types.InlineKeyboardButton(text="English", callback_data="en")
-    sinhala_button = types.InlineKeyboardButton(text="Sinhala", callback_data="si")
+    keyboard = InlineKeyboardMarkup()
+    english_button = InlineKeyboardButton(text="English", callback_data="en")
+    sinhala_button = InlineKeyboardButton(text="Sinhala", callback_data="si")
     keyboard.add(english_button, sinhala_button)
 
     return keyboard
