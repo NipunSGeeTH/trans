@@ -21,9 +21,9 @@ def start(message):
 def handle_language_selection(message):
     selected_language = message.text.lower()
 
-    if selected_language == 'english':
+    if selected_language == 'English':
         target_language = 'en'
-    elif selected_language == 'sinhala':
+    elif selected_language == 'Sinhala':
         target_language = 'si'
     else:
         bot.send_message(message.chat.id, "Invalid language selection. Please choose either 'English' or 'Sinhala'.")
