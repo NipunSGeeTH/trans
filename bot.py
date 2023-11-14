@@ -1,7 +1,7 @@
 import telebot
 from deep_translator import GoogleTranslator
 
-translator = GoogleTranslator(source='auto', target='en')
+translator = GoogleTranslator(source='auto')
 
 TOKEN = "1879931223:AAGhQi-yFWyrK9JOT3pRAtwlR8adrxGLmVU"
 
@@ -15,13 +15,11 @@ def start(message):
 def translate(message):
     try:
         if " | " in message.text:
-            text, language = message.text.split(" | ", 1)
-            language = language.strip()
+            text, language_code = message.text.split(" | ", 1)
+            translated_text = translator.translate(text, target=language_code.strip())
         else:
-            text = message.text
-            language = 'sinhala'
+            translated_text = translator.translate(message.text)
 
-        translated_text = translator.translate(text, target=language)
         bot.send_message(message.chat.id, f"Translation: {translated_text}")
     except Exception as e:
         bot.send_message(message.chat.id, "An error occurred while translating your text. Please try again.")
