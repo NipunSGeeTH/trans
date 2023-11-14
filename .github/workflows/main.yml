@@ -1,4 +1,4 @@
-name: Translation Bot
+name: Run Google Translate Telegram Bot
 
 on:
   push:
@@ -16,10 +16,10 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
-          python-version: '3.x'
+          python-version: 3.x
 
       - name: Install dependencies
-        run: pip install pyrogram googletrans
+        run: pip install telebot googletrans
 
-      - name: Run translation bot
-        run: python main.py
+      - name: Run Google Translate Telegram Bot
+        run: python bot.py
