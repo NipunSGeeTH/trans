@@ -22,8 +22,9 @@ def translate(message):
 bot.polling()
 """
 import telebot
+from telebot import *
 from deep_translator import GoogleTranslator
-from telebot.types import InlineKeyboardButton
+from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 translator = GoogleTranslator(source='auto')
 
@@ -69,4 +70,4 @@ def get_language_selection_keyboard():
 
     return keyboard
 
-bot.polling()
+bot.polling()  # Start the bot
