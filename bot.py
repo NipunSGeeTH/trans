@@ -16,7 +16,7 @@ def start(message):
 
 def handle_message(message):
     split_message = message.text.split('|')
-translator = GoogleTranslator(source='auto', target=split_message)
+    translator = GoogleTranslator(source='auto', target=split_message)
 
 def translate(message):
     try:
