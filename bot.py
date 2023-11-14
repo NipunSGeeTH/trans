@@ -32,24 +32,29 @@ bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.send_message(message.chat.id, "Welcome to the Deep Translate Telegram bot! Send me any text you want to translate and I will do my best to translate it for you.")
+    # Create the inline markup keyboard with two buttons
+    keyboard = types.InlineKeyboardMarkup()
+    english_button = types.InlineKeyboardButton(text="English", callback_data="en")
+    sinhala_button = types.InlineKeyboardButton(text="Sinhala", callback_data="si")
+    keyboard.add(english_button, sinhala_button)
 
-@bot.message_handler(func=lambda message: True)
-def translate(message):
+    bot.send_message(message.chat.id, "Select the language you want to translate to:", reply_markup=keyboard)
+
+@bot.callback_query_handler(func=lambda call: call.data in ["en", "si"])
+def translate(call):
     try:
-        # Detect the language of the input message
-        detected_language = translator.detect(message.text)
+        target_language = call.data  # Retrieve the selected target language
 
-        # Translate the message to the target language
-        if detected_language == 'si':  # Sinhala language
-            translated_text = translator.translate(message.text, target='en')  # English language
-        elif detected_language == 'en':  # English language
-            translated_text = translator.translate(message.text, target='si')  # Sinhala language
+        # Process the user's message
+        if call.message.reply_to_message is not None:
+            message = call.message.reply_to_message.text
         else:
-            translated_text = translator.translate(message.text)  # Default translation
+            message = call.message.text
 
-        bot.send_message(message.chat.id, f"Translation: {translated_text}")
+        # Translate the message to the selected target language
+        translated_text = translator.translate(message, target=target_language)
+
+        # Send the translated text to the user
+        bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f"Translation: {translated_text}")
     except Exception as e:
-        bot.send_message(message.chat.id, "An error occurred while translating your text. Please try again.")
-
-bot.polling()
+        bot.answer_callback_query(callback_query_id=call.id, text="An error occurred while translating your text. Please try again.")
