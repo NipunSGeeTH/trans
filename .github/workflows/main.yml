@@ -19,7 +19,7 @@ jobs:
           python-version: 3.x
 
       - name: Install dependencies
-        run: pip install deep-translator
+        run: pip install deep-translator telebot 
 
       - name: Run Deep Translate Telegram Bot
         run: python bot.py
