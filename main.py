@@ -3,7 +3,7 @@ from googletrans import Translator
 
 # Replace 'YOUR_BOT_TOKEN' with your actual bot token
 API_KEY = '1879931223:AAGhQi-yFWyrK9JOT3pRAtwlR8adrxGLmVU'
-app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=API_KEY)
+app = Client("my_bot", api_id=5402280, api_hash=65fe4300f4d442351e639e2f601bae4e, bot_token=API_KEY)
 
 @app.on_message(filters.private & filters.text)
 def translate_text(client, message):
