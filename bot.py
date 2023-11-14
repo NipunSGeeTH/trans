@@ -58,3 +58,4 @@ def translate(call):
         bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f"Translation: {translated_text}")
     except Exception as e:
         bot.answer_callback_query(callback_query_id=call.id, text="An error occurred while translating your text. Please try again.")
+bot.polling()
