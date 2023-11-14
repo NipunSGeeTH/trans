@@ -1,8 +1,9 @@
 name: Translate Bot Workflow
 
 on:
-  schedule:
-    - cron: '0 0 * * *'  # Run every day at midnight
+  push:
+    branches:
+      - main
 
 jobs:
   translate_bot:
