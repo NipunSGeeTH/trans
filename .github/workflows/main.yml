@@ -1,4 +1,4 @@
-name: Translate Bot Workflow
+name: Translation Bot
 
 on:
   push:
@@ -6,26 +6,20 @@ on:
       - main
 
 jobs:
-  translate_bot:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'  # Replace with your desired Python version
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pyrogram googletrans==4.0.0-rc1
+      - name: Install dependencies
+        run: pip install pyrogram googletrans
 
-    - name: Run Translate Bot
-      run: python translate_bot.py
-      env:
-        API_ID: ${{ secrets.5402280 }}
-        API_HASH: ${{ secrets.65fe4300f4d442351e639e2f601bae4e }}
-        BOT_TOKEN: ${{ secrets.1879931223:AAGhQi-yFWyrK9JOT3pRAtwlR8adrxGLmVU }}
+      - name: Run translation bot
+        run: python main.py
