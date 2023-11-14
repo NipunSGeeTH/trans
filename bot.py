@@ -13,7 +13,7 @@ def start(message):
     bot.send_message(message.chat.id, "Welcome to the Deep Translate Telegram bot! Send me any text you want to translate and I will do my best to translate it for you.")
 
 @bot.message_handler(func=lambda message: True)
-split_message ='en'
+split_message=('en')
 def handle_message(message):
     split_message = message.text.split('|')
 translator = GoogleTranslator(source='auto', target=split_message)
