@@ -26,7 +26,7 @@ from telebot import *
 from deep_translator import GoogleTranslator
 from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-translator = GoogleTranslator(source='auto',  target='si')
+
 
 TOKEN = "1879931223:AAGhQi-yFWyrK9JOT3pRAtwlR8adrxGLmVU"
 
@@ -51,9 +51,9 @@ def translate_with_selected_language(call):
     global user_message
     # Retrieve the selected target language
     target_language = call.data
-
+    translator = GoogleTranslator(source='auto',  target=target_language)
     # Translate the user's message to the selected target language
-    translated_text = translator.translate(user_message, target='en')
+    translated_text = translator.translate(user_message)
 
     # Send the translated text to the user
     bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id, text=f"Translation: {translated_text}")
