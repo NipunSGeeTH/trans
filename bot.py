@@ -63,12 +63,11 @@ def get_language_selection_keyboard():
     keyboard = InlineKeyboardMarkup()
     english_button = InlineKeyboardButton(text="English", callback_data="en")
     sinhala_button = InlineKeyboardButton(text="Sinhala", callback_data="si")
-    sinhala_button = InlineKeyboardButton(text="Tamil", callback_data="ta")
-    sinhala_button = InlineKeyboardButton(text="Korean", callback_data="ko")
-    sinhala_button = InlineKeyboardButton(text="Japanese", callback_data="ja")
-    sinhala_button = InlineKeyboardButton(text="Hindi", callback_data="hi")
-    keyboard.add(english_button, sinhala_button)
-
+    tamil_button = InlineKeyboardButton(text="Tamil", callback_data="ta")
+    korean_button = InlineKeyboardButton(text="Korean", callback_data="ko")
+    japanese_button = InlineKeyboardButton(text="Japanese", callback_data="ja")
+    hindi_button = InlineKeyboardButton(text="Hindi", callback_data="hi")
+    keyboard.add(english_button, sinhala_button,tamil_button,korean_button,japanese_button,hindi_button)
     return keyboard
 
 bot.polling()  # Start the bot
