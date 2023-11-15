@@ -46,7 +46,7 @@ def save_user_message(message):
     # Ask the user to select the target language
     bot.send_message(message.chat.id, "Select the language you want to translate to:", reply_markup=get_language_selection_keyboard())
 
-@bot.callback_query_handler(func=lambda call: call.data in ["en", "si"])
+@bot.callback_query_handler(func=lambda call: call.data in ["en", "si","ta","ko","ja","hi"])
 def translate_with_selected_language(call):
     global user_message
     # Retrieve the selected target language
@@ -63,6 +63,10 @@ def get_language_selection_keyboard():
     keyboard = InlineKeyboardMarkup()
     english_button = InlineKeyboardButton(text="English", callback_data="en")
     sinhala_button = InlineKeyboardButton(text="Sinhala", callback_data="si")
+    sinhala_button = InlineKeyboardButton(text="Tamil", callback_data="ta")
+    sinhala_button = InlineKeyboardButton(text="Korean", callback_data="ko")
+    sinhala_button = InlineKeyboardButton(text="Japanese", callback_data="ja")
+    sinhala_button = InlineKeyboardButton(text="Hindi", callback_data="hi")
     keyboard.add(english_button, sinhala_button)
 
     return keyboard
