@@ -19,7 +19,10 @@ jobs:
           python-version: 3.x
 
       - name: Install dependencies
-        run: pip install deep-translator telebot 
+        run: pip install deep-translator telebot pymongo
 
       - name: Run Deep Translate Telegram Bot
         run: python bot.py
+
+      - name: Commit changes
+        run: git add . && git commit -m "Update MongoDB with new Telegram users" && git push origin main
