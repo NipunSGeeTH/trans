@@ -185,6 +185,6 @@ def save_user_message(message):
                                   text=f"Translation: {translated_text}")
 
     else:
-        send_message(user_id, "Please join the channel first." ,reply_markup=join_button())
+        bot.send_message(user_id, "Please join the channel first.", reply_markup=join_button())
 bot.polling()  # Start the bot
 
