@@ -146,7 +146,8 @@ def handle_start(message):
     markup = types.InlineKeyboardMarkup()
     btn_open_website = types.InlineKeyboardButton('Open Website', url='t.me/nipunsgeeth')
     markup.add(btn_open_website)
-    bot.send_message(message.chat.id,"https://t.me/NsDevSpace/8", caption="Welcome!",  reply_markup=markup)
+    bot.send_photo(message.chat.id, "https://t.me/NsDevSpace/8", caption="Welcome!")
+    bot.send_message(message.chat.id, "Welcomjjsjsjjejee!",  reply_markup=markup)
 
 
     
