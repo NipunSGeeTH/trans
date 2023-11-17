@@ -142,12 +142,11 @@ bot = telebot.TeleBot(bot_token)
 
 
 @bot.message_handler(commands=['start'])
-def start(message):
-    markup = types.InlineKeyboardMarkup()
-    btn_open_website = types.InlineKeyboardButton('Open Website', url='t.me/nipunsgeeth')
-    markup.add(btn_open_website)
-    bot.send_message(message.chat.id, "Welcome to the Deep Translate Telegram bot! Send me any text you want to translate and I will do my best to translate it for you.",reply_markup=markup)
+def send_welcome(message):
+    bot.send_photo(message.chat.id, 'https://t.me/NsDevSpace/8')
     
+    bot.send_message(message.chat.id, "Hi!")
+
     
 
 
