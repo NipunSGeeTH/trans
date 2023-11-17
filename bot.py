@@ -141,7 +141,7 @@ bot = telebot.TeleBot(bot_token)
 
 
 
-bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['start'])
 def start(message):
     markup = types.InlineKeyboardMarkup()
     btn_open_website = types.InlineKeyboardButton('Open Website', url='t.me/nipunsgeeth')
