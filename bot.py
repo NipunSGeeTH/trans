@@ -141,7 +141,7 @@ bot = telebot.TeleBot(bot_token)
 
 def join_button():
     markup = types.InlineKeyboardMarkup()
-    btn_open_website = types.InlineKeyboardButton('Open Website', url='t.me/NsDevSpace)
+    btn_open_website = types.InlineKeyboardButton('Open Website', url='t.me/NsDevSpace')
     markup.add(btn_open_website)
     return markup                                              
                                 
