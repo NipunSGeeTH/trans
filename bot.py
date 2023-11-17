@@ -96,7 +96,7 @@ from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
 # Replace with your Telegram bot token
-bot_token = "1780185069:AAGPHAOaW5jy1teWE59m0soknhChqocLpZ0"
+bot_token = "6442898790:AAGPqlo27ohQQG3WNIWoLz3I1361eQkS-1c"
 
 # Replace with the Telegram channel ID
 channel_id = -1002123716029
@@ -146,7 +146,7 @@ def handle_start(message):
     markup = types.InlineKeyboardMarkup()
     btn_open_website = types.InlineKeyboardButton('Open Website', url='t.me/nipunsgeeth')
     markup.add(btn_open_website)
-    bot.send_message(message.chat.id, 'Click the button to open the website:', reply_markup=markup)
+    bot.send_message(message.chat.id,"https://t.me/NsDevSpace/8", caption="Welcome!", 'Click the button to open the website:', reply_markup=markup)
 
 
     
