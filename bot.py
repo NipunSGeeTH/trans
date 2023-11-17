@@ -139,15 +139,18 @@ def send_message(user_id, message):
 # Create a Telegram bot instance
 bot = telebot.TeleBot(bot_token)
 
-markup = types.InlineKeyboardMarkup()
-btn_open_website = types.InlineKeyboardButton('Open Website', url='t.me/NsDevSpace)
-markup.add(btn_open_website)
+def join_button():
+    markup = types.InlineKeyboardMarkup()
+    btn_open_website = types.InlineKeyboardButton('Open Website', url='t.me/NsDevSpace)
+    markup.add(btn_open_website)
+    return markup                                              
+                                
 
 @bot.message_handler(commands=['start'])
 def handle_start(message):
     
     bot.send_photo(message.chat.id, "https://t.me/NsDevSpace/8", caption="Welcome! to Translator Bot Olivia 💚")
-    bot.send_message(message.chat.id,  'hello',reply_markup=markup)
+    bot.send_message(message.chat.id,  'hello',reply_markup=join_button())
 
 
     
@@ -182,6 +185,6 @@ def save_user_message(message):
                                   text=f"Translation: {translated_text}")
 
     else:
-        send_message(user_id, "Please join the channel first." ,reply_markup=markup)
+        send_message(user_id, "Please join the channel first." ,reply_markup=join_button())
 bot.polling()  # Start the bot
 
