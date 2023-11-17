@@ -146,8 +146,8 @@ def handle_start(message):
     markup = types.InlineKeyboardMarkup()
     btn_open_website = types.InlineKeyboardButton('Open Website', url='t.me/nipunsgeeth')
     markup.add(btn_open_website)
-    bot.send_photo(message.chat.id, "https://t.me/NsDevSpace/8", caption="Welcome!")
-    bot.send_message(message.chat.id, "Welcomjjsjsjjejee!",  reply_markup=markup)
+    bot.send_photo(message.chat.id, "https://t.me/NsDevSpace/8", caption="Welcome! to Translator Bot Olivia 💚")
+    bot.send_message(message.chat.id,  reply_markup=markup)
 
 
     
@@ -182,6 +182,6 @@ def save_user_message(message):
                                   text=f"Translation: {translated_text}")
 
     else:
-        send_message(user_id, "Please join the channel first.")
+        send_message(user_id, "Please join the channel first." ,reply_markup=markup)
 bot.polling()  # Start the bot
 
