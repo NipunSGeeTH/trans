@@ -139,13 +139,13 @@ def send_message(user_id, message):
 # Create a Telegram bot instance
 bot = telebot.TeleBot(bot_token)
 
-
+markup = types.InlineKeyboardMarkup()
+btn_open_website = types.InlineKeyboardButton('Open Website', url='t.me/NsDevSpace)
+markup.add(btn_open_website)
 
 @bot.message_handler(commands=['start'])
 def handle_start(message):
-    markup = types.InlineKeyboardMarkup()
-    btn_open_website = types.InlineKeyboardButton('Open Website', url='t.me/nipunsgeeth')
-    markup.add(btn_open_website)
+    
     bot.send_photo(message.chat.id, "https://t.me/NsDevSpace/8", caption="Welcome! to Translator Bot Olivia 💚")
     bot.send_message(message.chat.id,  'hello',reply_markup=markup)
 
