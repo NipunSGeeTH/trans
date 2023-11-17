@@ -205,7 +205,7 @@ from pymongo import MongoClient
 
 MONGODB_URI = 'mongodb+srv://sangeethnipun385:poabZUl7nevXZPQ7@cluster0.jyiupuu.mongodb.net/?retryWrites=true&w=majority'
 DATABASE_NAME = 'Cluster0'
-COLLECTION_NAME = 'users'
+COLLECTION_NAME = 'translatebotusers'
 
 # Connect to MongoDB
 client = MongoClient(MONGODB_URI)
