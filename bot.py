@@ -277,7 +277,7 @@ def handle_start(message):
     user_data = {"user_id": user_id, "user_name": user_name, "user_first_name": user_first_name, "user_last_name": user_last_name}
     if not collection.find_one({"user_id": user_id}):
         collection.insert_one(user_data)
-    bot.send_photo(message.chat.id, "https://t.me/NsDevSpace/8", caption="Welcome! to Translator Bot Aurora 💚 \n Send Send the part you want to translate as text 💚", reply_markup=join_button())
+    bot.send_photo(message.chat.id, "https://t.me/NsDevSpace/8", caption="Welcome! \nTranslator Bot 💝 Aurora 💖 \n\nSend the part you want to translate as text 💚", reply_markup=join_button())
     
 
     
