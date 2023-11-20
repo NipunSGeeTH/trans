@@ -277,7 +277,7 @@ def handle_start(message):
     user_data = {"user_id": user_id, "user_name": user_name, "user_first_name": user_first_name, "user_last_name": user_last_name}
     if not collection.find_one({"user_id": user_id}):
         collection.insert_one(user_data)
-    bot.send_photo(message.chat.id, "https://t.me/NsDevSpace/8", caption="Welcome! \nTranslator Bot 💝 Aurora 💖 \n\nSend the part you want to translate as text 💚", reply_markup=join_button())
+    bot.send_photo(message.chat.id, "https://t.me/NsDevSpace/8", caption="Welcome! \nTranslator Bot 💝 Aurora 💖 \n\nSend the part you want to translate as text 💚\n\n 🇱🇰", reply_markup=join_button())
     
 
     
@@ -312,7 +312,7 @@ def save_user_message(message):
                                   text=f"Translation: {translated_text}")
 
     else:
-        bot.send_message(user_id, "Please join the channel first.\n මුලින්ම මේ චැනල් එකට ජොයින් වෙන්න, \n ඊට පස්සෙ Translate කරන්න ඕන Text  එක එවන්න 😊  ", reply_markup=join_button())
+        bot.send_message(user_id, "Please join the channel first ✅.\n\nමුලින්ම මේ චැනල් එකට ජොයින් වෙන්න, \nඊට පස්සෙ Translate කරන්න ඕන Text  එක එවන්න 😊 ", reply_markup=join_button())
 bot.polling()  # Start the bot
 
 
