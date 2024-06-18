@@ -3,12 +3,12 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/**/*.py",
+      "src": "bot.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "api/index.py" }
+    { "src": "/webhook", "dest": "bot.py" }
   ]
 }
 ```
