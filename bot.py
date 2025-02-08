@@ -21,7 +21,6 @@ def translate(message):
 
 bot.polling()
 
-
 """
 
 
